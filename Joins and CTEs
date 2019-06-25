@@ -2,7 +2,7 @@
 /* Question 1:
 What are the three longest trips on rainy days?
 */
-```SQL
+```sql
 with rd
      as ( select date(date) rain_date from weather where events like 'Rain%' group by 1)
 
@@ -10,7 +10,8 @@ select trips.trip_id, trips.duration, date(trips.start_date) from trips
 join rd
 on date(trips.start_date) = rd.rain_date
 order by duration desc
-limit 3```
+limit 3
+```
 
 /* Question 2:
 Which station is full most often?
